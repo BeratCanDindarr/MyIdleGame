@@ -2,13 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Main.Pool;
+using Main;
 public class DestroyGameObjects : MonoBehaviour
 {
     PoolManager poolManager;
     void Start()
     {
-        poolManager = PoolManager.instance;
+        poolManager = GameManager.instance.poolManager;
     }
     void OnTriggerEnter(Collider other)
     {

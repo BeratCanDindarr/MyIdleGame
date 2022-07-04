@@ -20,7 +20,7 @@ namespace Main.Player
         // Start is called before the first frame update
         void Start()
         {
-            Joystick joystick = PlayerManager.instance.joystick;
+            Joystick joystick = Main.GameManager.instance.playerManager.joystick;
             gameJoystick = joystick;
             
         }
