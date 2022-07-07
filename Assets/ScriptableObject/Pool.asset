@@ -12,12 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71a99103123a0d8498973d2ad58a4f34, type: 3}
   m_Name: Pool
   m_EditorClassIdentifier: 
-  Coins:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  Coins: []
   Zombie: []

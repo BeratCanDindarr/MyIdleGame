@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Main.Player;
 using Main.Pool;
-
+using Main.Zombie;
 using Main.Spawn;
-using Main.AI;
+
 namespace Main
 {
     public class GameManager : MonoBehaviour
@@ -27,6 +27,11 @@ namespace Main
         void Update()
         {
             
+        }
+        public float Timer(float _timer)
+        {
+            _timer -= Time.deltaTime;
+            return _timer;
         }
         
     }

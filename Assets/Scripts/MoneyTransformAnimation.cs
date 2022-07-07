@@ -22,10 +22,12 @@ namespace Main.Animation
         [SerializeField]int structurePrice;
         public TextStructureChange structureScripts;
         public GameObject textCanvas;
+        GameManager gameManager;
         
         // Start is called before the first frame update
         void Start()
         {
+            gameManager = GameManager.instance;
             pathval[0] = pathAdd(pathval[0]);
             pathval[1] = new Vector3(targetObject.transform.position.x,targetObject.transform.position.y,targetObject.transform.position.z);
             _timer = timer;
@@ -33,8 +35,12 @@ namespace Main.Animation
         }
         void Update()
         {
-            _timer -= Time.deltaTime;
-            Debug.Log(_timer);
+           Timer();
+        }
+        void Timer()
+        {
+             _timer = gameManager.Timer(_timer);
+            
             if(_timer <= 0)
             {
                 coinSpawn = true;

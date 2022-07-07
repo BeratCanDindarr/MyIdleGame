@@ -44,7 +44,7 @@ namespace Main.Player
                 transform.Translate(_move* moveSpeed * Time.deltaTime,Space.World);
                 if(_move != Vector3.zero)
                 {
-                    Debug.Log("deneme");
+                    
                     Quaternion toRotation = Quaternion.LookRotation(_move,Vector3.up);  
 
                     player.transform.rotation = Quaternion.RotateTowards(player.transform.rotation,toRotation,rotationSpeed*Time.deltaTime);

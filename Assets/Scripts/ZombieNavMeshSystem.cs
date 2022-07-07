@@ -7,14 +7,15 @@ namespace Main.Zombie
 {
     public class ZombieNavMeshSystem : MonoBehaviour
     {
-        Transform target;
+       public Transform target;
         NavMeshAgent zombieNavMeshAgent;
         public float zombieSpeed;
 
         // Start is called before the first frame update
         void Start()
         {
-            target = GameManager.instance.aIManager.targetObject.transform;
+            target = GameManager.instance.aIManager.targetObject;
+            
                 zombieNavMeshAgent = gameObject.GetComponent<NavMeshAgent>();
                 zombieNavMeshAgent.speed = zombieSpeed;
         }
@@ -23,7 +24,7 @@ namespace Main.Zombie
         // Update is called once per frame
         void FixedUpdate()
         {
-         zombieNavMeshAgent.destination = target.position;   
+             zombieNavMeshAgent.destination = target.position;   
         }
     }
 }
