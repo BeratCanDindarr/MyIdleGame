@@ -22,12 +22,14 @@ namespace Main.Animation
         [SerializeField]int structurePrice;
         public TextStructureChange structureScripts;
         public GameObject textCanvas;
+        
         // Start is called before the first frame update
         void Start()
         {
             pathval[0] = pathAdd(pathval[0]);
             pathval[1] = new Vector3(targetObject.transform.position.x,targetObject.transform.position.y,targetObject.transform.position.z);
             _timer = timer;
+            
         }
         void Update()
         {
@@ -90,7 +92,7 @@ namespace Main.Animation
                 }
                 else
                 {
-                    _pathval = new Vector3((_position.x - transform.position.x)/2,3,(_position.z+transform.position.z)/2);
+                    _pathval = new Vector3((_position.x + transform.position.x)/2,3,(_position.z+transform.position.z)/2);
                 }
             }
             else

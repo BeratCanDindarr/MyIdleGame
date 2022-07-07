@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-namespace Main.Zombie
+using Main.Zombie;
+namespace Main.AI
 {
-    public class ZombieManager : MonoBehaviour
+    public class AIManager : MonoBehaviour
     {
         public GameObject targetObject;
+        public ZombieSpawn zombieSpawn;
         // Start is called before the first frame update
         void Start()
         {
@@ -19,5 +20,4 @@ namespace Main.Zombie
             
         }
     }
-
 }

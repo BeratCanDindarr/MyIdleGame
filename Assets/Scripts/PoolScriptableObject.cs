@@ -11,9 +11,10 @@ public class PoolScriptableObject : ScriptableObject
 
     void OnEnable()
     {
-        if(Coins.Count > 0)
+        if(Coins.Count > 0 || Zombie.Count > 0)
         {
             Coins.Clear();
+            Zombie.Clear();
         }
     }
 

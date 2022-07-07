@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Main.Player;
 using Main.Pool;
-using Main.Zombie;
+
+using Main.Spawn;
+using Main.AI;
 namespace Main
 {
     public class GameManager : MonoBehaviour
@@ -11,7 +13,9 @@ namespace Main
         public static GameManager instance;
         public PlayerManager playerManager;
         public PoolManager poolManager;
-        public ZombieManager zombieManager;
+        
+        public SpawnManager spawnManager;
+        public AIManager aIManager;
         
         // Start is called before the first frame update
         void Awake()

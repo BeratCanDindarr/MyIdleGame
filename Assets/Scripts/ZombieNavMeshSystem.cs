@@ -14,10 +14,11 @@ namespace Main.Zombie
         // Start is called before the first frame update
         void Start()
         {
-            target = GameManager.instance.zombieManager.targetObject.transform;
-            zombieNavMeshAgent = gameObject.GetComponent<NavMeshAgent>();
-            zombieNavMeshAgent.speed = zombieSpeed;
+            target = GameManager.instance.aIManager.targetObject.transform;
+                zombieNavMeshAgent = gameObject.GetComponent<NavMeshAgent>();
+                zombieNavMeshAgent.speed = zombieSpeed;
         }
+       
 
         // Update is called once per frame
         void FixedUpdate()

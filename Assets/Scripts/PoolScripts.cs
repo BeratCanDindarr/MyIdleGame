@@ -9,11 +9,11 @@ namespace Main.Pool
     {
         [SerializeField]GameObject coin;
         PoolManager poolManager;
-        GameObject deneme;
+        
         void Start()
         {
             poolManager = GameManager.instance.poolManager;
-            Spawn(coin,15);
+           
         }
 
         // Update is called once per frame
@@ -21,52 +21,40 @@ namespace Main.Pool
         {
             
         }
-        public void Spawn(GameObject _object , int _size)
-        {
-            for(int i = 0; i<= _size ; i++)
-            {
-                var _item = Instantiate(_object,this.gameObject.transform);
-                _item.transform.position = transform.position;
-                poolManager.poolScriptableObject.Coins.Add(_item);
-                _item.SetActive(false);
-
-            }
-
-        }
+      
         public GameObject ObjectReturn(int _itemCode)
         {
-            
+            GameObject _returnObject = null;
             switch(_itemCode)
             {
                 case 0:
                     //coin
                     
-                    CheckAndReturn(poolManager.poolScriptableObject.Coins);
+                    _returnObject = CheckAndReturn(poolManager.poolScriptableObject.Coins);
                     break;
                 case 1:
                     //zombie
-                    CheckAndReturn(poolManager.poolScriptableObject.Zombie);
+                    _returnObject = CheckAndReturn(poolManager.poolScriptableObject.Zombie);
                     break;
             }
             
-            return deneme;
+            return _returnObject;
         }
-        void CheckAndReturn(List<GameObject> _object)
+        GameObject CheckAndReturn(List<GameObject> _object)
         {
-            
+            GameObject _returnObject = null;
             for(int i =0;i<=_object.Count;i++)
             {
                 if(!_object[i].active)
                 {
-                    deneme = _object[i];
+                    _returnObject = _object[i];
                     _object.RemoveAt(i);
                     
                     break;
                 }
-                else
-                    deneme = null;
+                
             }
-        
+            return _returnObject;
         }
 
         
