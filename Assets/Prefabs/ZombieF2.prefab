@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   zombieSpeed: 2
+  health: 100
 --- !u!195 &709397037427180235
 NavMeshAgent:
   m_ObjectHideFlags: 0

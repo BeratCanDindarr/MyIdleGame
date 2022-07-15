@@ -8,16 +8,22 @@ namespace Main.Ai.Defender
     {
         public List<GameObject> target;
         public GameObject gunBarrel;
+        GameManager gameManager;
         Aiming aim;
-        Shooting shot;
+        ShootManager shot;
 
+        bool listEmpty = false;
+        public float timer;
+        float _timer;
         
-        
+       
         // Start is called before the first frame update
         void Start()
         {
-            aim = GameManager.instance.shootManager.aimingScript;
-            shot = GameManager.instance.shootManager.shootingScript;
+            _timer = timer;
+            gameManager = GameManager.instance;
+            aim = gameManager.shootManager.aimingScript;
+            shot = gameManager.shootManager;
         }
 
         // Update is called once per frame
@@ -26,18 +32,35 @@ namespace Main.Ai.Defender
             if(target.Count != 0)
             {
                 aim.Aim(gameObject,target[0].transform.position);
+                listEmpty = true;
             }
-            if(Input.GetMouseButtonDown(0))
+            if(listEmpty && _timer<=0)
             {
-                
-                GameManager.instance.shootManager.shootingScript.Shot(gunBarrel.transform);
+                Debug.Log(_timer);
+                _timer = timer;
+                Shoot();
                 
             }
+            Timer();
+        }
+
+        void Shoot()
+        {
+            shot.shootingScript.Shot(gunBarrel.transform);
+        }
+        void Timer()
+        {
+            _timer = gameManager.Timer(_timer);
+            
         }
 
         public void targetAdd(GameObject _target)
         {
             target.Add(_target);
+        }
+        public void DeleteTarget(GameObject _target)
+        {
+            target.Remove(_target);
         }
 
     }

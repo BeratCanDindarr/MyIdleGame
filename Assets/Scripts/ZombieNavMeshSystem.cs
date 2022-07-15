@@ -5,12 +5,13 @@ using UnityEngine.AI;
 
 namespace Main.Ai.Zombie
 {
-    public class ZombieNavMeshSystem : MonoBehaviour , IRangeAble
+    public class ZombieNavMeshSystem : MonoBehaviour , IRangeAble , IDamageAble<float>
     {
        public Transform target;
         NavMeshAgent zombieNavMeshAgent;
         public float zombieSpeed;
         GameManager gameManager;
+        public float health;
 
         // Start is called before the first frame update
         void Start()
@@ -20,7 +21,14 @@ namespace Main.Ai.Zombie
                 zombieNavMeshAgent = gameObject.GetComponent<NavMeshAgent>();
                 zombieNavMeshAgent.speed = zombieSpeed;
         }
-       
+       void Update()
+       {
+           if(health<=0)
+           {
+             gameManager.aIManager.defenderScript.DeleteTarget(gameObject);
+             gameObject.SetActive(false);
+           }
+       }
 
         // Update is called once per frame
         void FixedUpdate()
@@ -31,6 +39,10 @@ namespace Main.Ai.Zombie
         public void RangeAdd()
         {
             gameManager.aIManager.defenderScript.targetAdd(gameObject);
+        }
+        public void Damage(float _damage)
+        {
+            health -=_damage;
         }
 
         
