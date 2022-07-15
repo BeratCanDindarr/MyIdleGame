@@ -20,6 +20,10 @@ namespace Main.Shoot
         {
             
         }
+        void ShotManager()
+        {
+            
+        }
     }
 
 }

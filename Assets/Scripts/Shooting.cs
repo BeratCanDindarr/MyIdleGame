@@ -6,7 +6,9 @@ namespace Main.Shoot
 {
     public class Shooting : MonoBehaviour
     {
-        // Start is called before the first frame update
+        GameObject bullet;
+
+        public float bulletSpeed;
         void Start()
         {
             
@@ -16,6 +18,15 @@ namespace Main.Shoot
         void Update()
         {
             
+        }
+        public void Shot(Transform gunBarrel)
+        {
+           GameObject _bullet = GameManager.instance.poolManager.pooling.ObjectReturn(2);
+           _bullet.transform.position = gunBarrel.position;
+           _bullet.SetActive(true);
+           Rigidbody _rb = _bullet.GetComponent<Rigidbody>();
+           _rb.AddForce(gunBarrel.transform.forward * bulletSpeed);
+
         }
     }
 
