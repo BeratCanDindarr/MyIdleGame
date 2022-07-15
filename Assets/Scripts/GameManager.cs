@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Main.Player;
 using Main.Pool;
-using Main.Zombie;
+using Main.Ai;
 using Main.Spawn;
+using Main.Shoot;
 
 namespace Main
 {
@@ -16,6 +17,7 @@ namespace Main
         
         public SpawnManager spawnManager;
         public AIManager aIManager;
+        public ShootManager shootManager;
         
         // Start is called before the first frame update
         void Awake()

@@ -14,6 +14,9 @@ namespace Main.Spawn
         [SerializeField]List<GameObject> zombie;
         [SerializeField]GameObject parentZombie;
         PoolScriptableObject poolScriptableObject;
+
+        [SerializeField]GameObject bullet;
+        [SerializeField]GameObject parentBullet;
         void Start()
         {
             poolScriptableObject = GameManager.instance.poolManager.poolScriptableObject;
@@ -22,6 +25,7 @@ namespace Main.Spawn
             ObjectSpawn(zombie[1],poolScriptableObject.Zombie,parentZombie,10);
             ObjectSpawn(zombie[2],poolScriptableObject.Zombie,parentZombie,10);
             ObjectSpawn(zombie[3],poolScriptableObject.Zombie,parentZombie,10);
+            ObjectSpawn(bullet,poolScriptableObject.Bullet,parentBullet,100);
         }
 
         void ObjectSpawn(GameObject _object ,List<GameObject> _list ,GameObject _parentObject, int _size)

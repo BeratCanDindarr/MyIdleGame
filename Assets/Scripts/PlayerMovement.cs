@@ -28,7 +28,7 @@ namespace Main.Player
         // Update is called once per frame
         void Update()
         {
-            
+           
         }
         public void MovePlayer()
         {

@@ -7,16 +7,20 @@ public class PoolScriptableObject : ScriptableObject
 {
    public List<GameObject> Coins;
    public List<GameObject> Zombie;
+   public List<GameObject> Bullet;
 
 
-    void OnEnable()
+    void OnDisable()
     {
         if(Coins.Count > 0 || Zombie.Count > 0)
         {
             Coins.Clear();
             Zombie.Clear();
+            Bullet.Clear();
         }
+        
     }
+    
 
 
 

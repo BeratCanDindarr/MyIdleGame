@@ -36,6 +36,10 @@ namespace Main.Pool
                     //zombie
                     _returnObject = CheckAndReturn(poolManager.poolScriptableObject.Zombie);
                     break;
+                case 2:
+                    //zombie
+                    _returnObject = CheckAndReturn(poolManager.poolScriptableObject.Bullet);
+                    break;
             }
             
             return _returnObject;
