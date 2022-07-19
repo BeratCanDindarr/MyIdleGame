@@ -18,6 +18,10 @@ namespace Main
         public SpawnManager spawnManager;
         public AIManager aIManager;
         public ShootManager shootManager;
+        public GameObject player;
+
+
+        public Vector3 defaultPosition;
         
         // Start is called before the first frame update
         void Awake()
@@ -36,6 +40,7 @@ namespace Main
             return _timer;
         }
         
+       
     }
 
 }

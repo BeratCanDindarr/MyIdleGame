@@ -28,6 +28,7 @@ namespace Main.Animation
         void Start()
         {
             gameManager = GameManager.instance;
+            playerTrans = gameManager.player.transform;
             pathval[0] = pathAdd(pathval[0]);
             pathval[1] = new Vector3(targetObject.transform.position.x,targetObject.transform.position.y,targetObject.transform.position.z);
             _timer = timer;
@@ -71,8 +72,9 @@ namespace Main.Animation
         void CreateStructured()
         {
             textCanvas.SetActive(false);
-            targetObject.GetComponent<MeshRenderer>().enabled = true;
+            targetObject.GetComponent<ObjectChange>().objectOpen();
             gameObject.GetComponent<BoxCollider>().enabled = false;
+            
         }
 
         

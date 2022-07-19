@@ -11,6 +11,7 @@ namespace Main.Ai
         public ZombieSpawn zombieSpawn;
 
         public DefenderScript defenderScript;
+        public List<GameObject> target;
         
         // Start is called before the first frame update
         void Start()

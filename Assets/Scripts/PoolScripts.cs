@@ -38,7 +38,7 @@ namespace Main.Pool
                     break;
                 case 2:
                     //Bullet
-                    _returnObject = CheckAndReturn(poolManager.poolScriptableObject.Bullet);
+                        _returnObject = CheckAndReturn(poolManager.poolScriptableObject.Bullet);
                     break;
             }
             
@@ -47,20 +47,30 @@ namespace Main.Pool
         GameObject CheckAndReturn(List<GameObject> _object)
         {
             GameObject _returnObject = null;
-            for(int i =0;i<=_object.Count;i++)
+            if(_object.Count <= 0)
             {
-                if(!_object[i].active)
-                {
-                    _returnObject = _object[i];
-                    _object.RemoveAt(i);
-                    
-                    break;
-                }
-                
+                return null;
             }
-            return _returnObject;
-        }
+            else
+            {
 
+                for(int i =0;i<=_object.Count;i++)
+                {
+                    if(!_object[i].active)
+                    {
+                        _returnObject = _object[i];
+                        _object.RemoveAt(i);
+                        
+                        break;
+                    }
+                    
+                }
+                return _returnObject;
+            }
+        }
+        
+
+        
         
         
     }

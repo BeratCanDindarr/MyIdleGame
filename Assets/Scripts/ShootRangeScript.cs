@@ -6,6 +6,10 @@ public class ShootRangeScript : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
-        other.gameObject.GetComponent<IRangeAble>().RangeAdd();
+        var range =other.gameObject.GetComponent<IRangeAble>();
+        if(range != null)
+        {
+            range.RangeAdd();
+        }
     }
 }
